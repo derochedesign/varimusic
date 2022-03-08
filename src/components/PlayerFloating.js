@@ -1,3 +1,5 @@
+import { PlayIcon } from "../icons/GeneralIcons";
+
 const PlayerFloating = props => {
   return (
     <div className="player-floating">
@@ -7,7 +9,9 @@ const PlayerFloating = props => {
         <h4>Starface*</h4>
         <h5>Jean Dawson</h5>
       </div>
-      <h1>P</h1>
+      <button className="icon">
+        <PlayIcon />
+      </button>
     </div>
   );
 }

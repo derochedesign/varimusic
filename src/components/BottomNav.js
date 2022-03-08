@@ -1,12 +1,30 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { FeedIcon, LibraryIcon } from "../icons/GeneralIcons";
 import PlayerFloating from "./PlayerFloating";
 
 const BottomNav = props => {
+  
+  const location = useLocation();
+  const [currPage, setCurrPage] = useState("/");
+  
+  useEffect(() => {
+    setCurrPage(location.pathname)
+  },[location]);
+  
   return (
     <nav className="main">
       <div className="global-nav">
-        <Link to="/feed"><h1>F</h1></Link>
-        <Link to="/library"><h1>L</h1></Link>
+        <Link to="/feed">
+          <button className="icon large" data-active={currPage === "/feed"}>
+            <FeedIcon />
+          </button>
+        </Link>
+        <Link to="/library">
+          <button className="icon large" data-active={currPage === "/library"}>
+            <LibraryIcon />
+          </button>
+        </Link>
       </div>
       <PlayerFloating />
     </nav>
